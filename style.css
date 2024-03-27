@@ -1,0 +1,101 @@
+body{
+    background-image: url('game-background-picture.webp');
+    margin: 20pxs;
+}
+
+h1{
+    text-align: center;
+    margin: 30px auto 30px auto;
+    color: navy;
+    font-family: 'Brush Script MT', cursive;
+    font-weight: bold;
+}
+
+#playGameBtn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    cursor:pointer;
+    font-family: Papyrus, fantasy;
+    font-size: 1.2rem;
+    color: white;
+    background-color: red;
+    background-size: cover;
+    border-radius: 1rem;
+    margin: 50px auto 30px auto;
+    min-width: 250px;
+    min-height: 100px;
+    border: 2px solid rgb(104, 40, 40);
+    letter-spacing: 5px;
+    animation-name: btnChange;
+    animation-duration: 4s;
+}
+
+@keyframes btnChange {
+    from {background-color: rgb(255, 0, 0);}
+    to {background-color: rgb(254, 62, 62);}
+  }
+
+#buttonsContainer{
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(21, 71, 219, 0.236);
+}
+
+#rockBtn{
+    background:url(hand-rock.jpg) no-repeat;
+    background-size: cover;
+    padding: 20px;
+    border-radius: 50%;
+    cursor:pointer;
+    border:2px solid navy;
+    width:150px;
+    height:150px;
+    margin:5px;
+}
+
+#paperBtn{
+    background:url(hand-paper.jpg) no-repeat;
+    background-size: cover;
+    padding: 20px;
+    border-radius: 50%;
+    cursor:pointer;
+    border:2px solid navy;
+    width:150px;
+    height:150px;
+    margin:5px;
+}
+
+#scissorsBtn{
+    background:url(hand-scissors.jpg) no-repeat;
+    background-size: cover;
+    padding: 20px;
+    border-radius: 50%;
+    cursor:pointer;
+    border:2px solid navy;
+    width:150px;
+    height:150px;
+    margin:5px;
+}
+
+#textContainer{
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(21, 71, 219, 0.236);
+
+}
+
+#computerMoveText{
+    color: navy;
+    padding: 30px;
+}
+
+#winnerText{    
+    color: navy;
+    padding: 30px;
+
+}
