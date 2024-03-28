@@ -1,141 +1,95 @@
-/* 
-play 
-timer?
-click button
-make JS ramdomly select move
-text - inform what JS seleced
-text - (what beats what) - inform who won
-restart
-*/
+const container = document.querySelector("#game");
+draw_welcomePage();
 
-/*const container = document.querySelector("#test");
-
-const createBtn = document.createElement("button");
-createBtn.textContent = "Create a new button";
-
-let counter = 0;
-createBtn.addEventListener("click", () => {
-    const newBtn = document.createElement("button");
-    const number = counter;
-    counter += 1;
-    newBtn.textContent = "Button " + number;
-    newBtn.addEventListener("click", () => {
-        console.log("clicked! " + number);
-    });
-    container.appendChild(newBtn);
-});
-container.appendChild(createBtn);*/
-
-let rockBtn = document.querySelector("#rockBtn");
-let paperBtn = document.querySelector("#paperBtn");
-let scissorsBtn = document.querySelector("#scissorsBtn");
-
-let computerMove = "";
-let gameRunning = false;
-const computerMoveText = document.querySelector("#computerMoveText");
-const winnerText = document.querySelector("#winnerText");
-
-const playGameBtn = document.querySelector("#playGameBtn");
-playGameBtn.addEventListener("click", playGame);
-
-
-//Do I use onload here?
-//onload = gameTemplate();
-
-/*
-if(gameRunning == false) {
-    rockBtn.style.display = 'none';
-} else if(gameRunning == true){
-    rockBtn.style.display = '';
-}
-
-if(gameRunning == false) {
-    paperBtn.style.display = 'none';
-} else if(gameRunning == true){ 
-    paperBtn.style.display = '';
-}
-
-
-if(gameRunning == false) {
-    scissorsBtn.style.display = 'none';
-} else if(gameRunning == true){ 
-    scissorsBtn.style.display = '';
-}
-
-*/
-
-function playGame(){  
-    gameRunning = true;    
-    document.getElementById("rockBtn").addEventListener("click", () => {
-        initiateComputerMove();
-        rockBtnWinner();
-    });
-    
-    document.getElementById("paperBtn").addEventListener("click", () => {
-        initiateComputerMove();
-        paperBtnWinner();
-    });
-    
-    document.getElementById("scissorsBtn").addEventListener("click", () => {
-        initiateComputerMove();
-        scissorsBtnWinner();
-    });
-
-    hidePlayGameBtn();
-}
-
-
-function initiateComputerMove(){
-    const randomNumber = Math.random();
-    if(randomNumber >= 0 && randomNumber < 1 / 3) {
-        computerMove = "Rock";        
-    } else if(randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
-        computerMove = "Paper";   
-    }if(randomNumber >= 2 / 3 && randomNumber < 1) {
-    computerMove = "Scissors"; 
-    }
-
-    computerMoveText.textContent = `The computer picks ${computerMove}`;
-}
-
-
-function hidePlayGameBtn(){
-    if(gameRunning = true) {
-        playGameBtn.style.display = 'none';
-    } else { 
-        playGameBtn.style.display = '';
+function clearPage() {
+    let children = Array.from(container.children)
+    for (let child of children) {
+        console.log(child);
+        child.remove();
     }
 }
 
-
-function rockBtnWinner(){
-    if(computerMove === "Rock"){
-        winnerText.textContent = "It's a draw!";
-    } else if(computerMove === "Paper"){
-        winnerText.textContent = "You lose!";
-    } else if(computerMove === "Scissors"){
-        winnerText.textContent = "You win!";
-}
-}
-
-
-function paperBtnWinner(){
-    if(computerMove === "Rock"){
-        winnerText.textContent = "You win!";
-    } else if(computerMove === "Paper"){
-        winnerText.textContent = "It's a draw!";
-    } else if(computerMove === "Scissors"){
-        winnerText.textContent = "You lose!";
-}
+function draw_welcomePage() {
+    const button = document.createElement("button");
+    button.textContent = "Start";
+    button.addEventListener("click", () => {
+        clearPage();
+        draw_userChoosePage();
+    })
+    container.appendChild(button);
 }
 
+function draw_userChoosePage() {
+    const userBox = document.createElement("div");
+    container.appendChild(userBox);
 
-function scissorsBtnWinner(){
-    if(computerMove === "Rock"){
-        winnerText.textContent = "You lose!";
-    } else if(computerMove === "Paper"){
-        winnerText.textContent = "You win!";
-    } else if(computerMove === "Scissors"){
-        winnerText.textContent = "It's a draw!";
+    const userPhoto = document.createElement("img");
+    userPhoto.setAttribute("src", "https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png");
+    const rockBtn = document.createElement("button");
+    rockBtn.textContent = "Rock";
+    rockBtn.addEventListener("click", () => {
+        clearPage();
+        draw_computerChoosePage("rock");
+    })
+    const paperBtn = document.createElement("button");
+    paperBtn.addEventListener("click", () => {
+        clearPage();
+        draw_computerChoosePage("paper");
+    })
+    paperBtn.textContent = "Paper";
+    const scissorBtn = document.createElement("button");
+    scissorBtn.addEventListener("click", () => {
+        clearPage();
+        draw_computerChoosePage("scissor");
+    })
+    scissorBtn.textContent = "Scissor";
+    userBox.appendChild(userPhoto);
+    userBox.appendChild(rockBtn);
+    userBox.appendChild(paperBtn);
+    userBox.appendChild(scissorBtn);
+
+    const computerBox = document.createElement("div");
+    container.appendChild(computerBox);
+    const computerPhoto = document.createElement("img");
+    computerPhoto.setAttribute("src", "https://static-00.iconduck.com/assets.00/robot-face-emoji-2048x1991-6hcyptr3.png");
+    computerBox.appendChild(computerPhoto);
 }
+
+function draw_computerChoosePage(userChoice) {
+    const userBox = document.createElement("div");
+    container.appendChild(userBox);
+
+    const userPhoto = document.createElement("img");
+    userPhoto.setAttribute("src", "https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png");
+    userBox.appendChild(userPhoto);
+
+    const userChoiceBox = document.createElement("p");
+    userChoiceBox.textContent = userChoice;
+    userBox.appendChild(userChoiceBox);
+
+
+    const computerBox = document.createElement("div");
+    container.appendChild(computerBox);
+    const computerPhoto = document.createElement("img");
+    computerPhoto.setAttribute("src", "https://static-00.iconduck.com/assets.00/robot-face-emoji-2048x1991-6hcyptr3.png");
+    computerBox.appendChild(computerPhoto);
+
+    let n = Math.floor((100 * Math.random()) % 3); // number in the set { 0. 1, 2 }
+    let choices = ["rock", "paper", "scissors"]
+    let computerChoice = choices[n]; 
+    const computerChoiceBox = document.createElement("span");
+    computerChoiceBox.textContent = computerChoice;
+    computerBox.appendChild(computerChoiceBox);
+
+    const resultBox = document.createElement("span");
+    if ((computerChoice === "rock" && userChoice === "scissors") ||
+        (computerChoice === "scissors" && userChoice === "paper") ||
+        (computerChoice === "paper" && userChoice === "rock")) {
+        resultBox.textContent = "You lose";
+    } else if (computerChoice == userChoice) {
+        resultBox.textContent = "It's a draw!";
+    } else {
+        resultBox.textContent = "You win!";
+    }
+    container.appendChild(resultBox);
 }
