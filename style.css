@@ -2,3 +2,81 @@ img {
     max-width: 100px;
     display: inline-block;
 }
+
+body{
+    /*background: 
+        url("blue-backgroundjpg-2.jpg");
+        background-size: cover;   */
+}
+
+h1{
+    text-align: center;
+    letter-spacing: 4px;
+    font-family: Luminari, fantasy;    
+    /*font-family: Haptic, "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", tahoma;*/
+    font-weight: bold;
+    font-size: 3rem;
+    color: rgba(20, 20, 216, 0.705);
+    text-shadow: 1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
+}
+
+button.btn-start{
+    display: block;
+    margin: auto;
+    color: black;
+    font-size: 1rem;
+    border-radius: 20%;
+    background-color: red;
+    color: yellow;
+    font-weight: bold;
+    text-shadow: 1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    width: 100px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.userBox{
+    display: flex;
+    align-items: center;
+
+    
+}
+.centered {
+    text-align: center;
+}
+
+button.rockBtn{
+    background: url("hand-rock.jpg");
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 10px;
+    border: none;
+
+}
+
+button.paperBtn{
+    background: url("hand-paper.jpg");
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 10px;
+    border: none;
+}
+
+
+button.scissorBtn{
+    background: url("hand-scissors.jpg");
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 10px;
+    border: none;
+}
+

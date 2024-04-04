@@ -10,39 +10,60 @@ function clearPage() {
 }
 
 function draw_welcomePage() {
+    const title = document.createElement("h1");
+    title.textContent = "Rock Paper Scissors";
+    container.appendChild(title);
+
     const button = document.createElement("button");
     button.textContent = "Start";
+    button.setAttribute("class", "btn-start");
     button.addEventListener("click", () => {
         clearPage();
         draw_userChoosePage();
     })
     container.appendChild(button);
+
 }
 
 function draw_userChoosePage() {
+    const title = document.createElement("h1");
+    title.textContent = "Rock Paper Scissors";
+    container.appendChild(title);
+
+    const chooseText = document.createElement("h2");
+    chooseText.textContent = "Choose:";
+    chooseText.setAttribute("class", "centered")
+    container.appendChild(chooseText);
+
     const userBox = document.createElement("div");
+    userBox.setAttribute("class", "userBox");
     container.appendChild(userBox);
 
     const userPhoto = document.createElement("img");
-    userPhoto.setAttribute("src", "https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png");
+    userPhoto.setAttribute("src", "icons-login-user-avatars.png");
+    userPhoto.style.margin = "50px";
+
     const rockBtn = document.createElement("button");
-    rockBtn.textContent = "Rock";
+    rockBtn.textContent = "";
+    rockBtn.setAttribute("class", "rockBtn");
     rockBtn.addEventListener("click", () => {
         clearPage();
         draw_computerChoosePage("rock");
     })
     const paperBtn = document.createElement("button");
+    paperBtn.setAttribute("class", "paperBtn");
     paperBtn.addEventListener("click", () => {
         clearPage();
         draw_computerChoosePage("paper");
     })
-    paperBtn.textContent = "Paper";
+    paperBtn.textContent = "";
     const scissorBtn = document.createElement("button");
+    scissorBtn.setAttribute("class", "scissorBtn");
     scissorBtn.addEventListener("click", () => {
         clearPage();
         draw_computerChoosePage("scissor");
     })
-    scissorBtn.textContent = "Scissor";
+    scissorBtn.textContent = "";
     userBox.appendChild(userPhoto);
     userBox.appendChild(rockBtn);
     userBox.appendChild(paperBtn);
@@ -53,6 +74,7 @@ function draw_userChoosePage() {
     const computerPhoto = document.createElement("img");
     computerPhoto.setAttribute("src", "https://static-00.iconduck.com/assets.00/robot-face-emoji-2048x1991-6hcyptr3.png");
     computerBox.appendChild(computerPhoto);
+    computerBox.style.margin = "50px";
 }
 
 function draw_computerChoosePage(userChoice) {
